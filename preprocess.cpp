@@ -12,7 +12,8 @@ void preprocess4(Mat &src);
 
 int main(){
 	//Mat src1 = imread("./test_data/01.jpg", 0);
-	Mat src1 = imread("./test_data/33.jpg", 0);
+	//Mat src1 = imread("./test_data/33.jpg", 0);
+	Mat src1 = imread("./test_data/13.png", 0);
 	if(!src1.data){
 		perror("1 read file failed!\n");
 	}
@@ -35,7 +36,7 @@ void preprocess4(Mat &src){
 	for(size_t i = 0; i < lines.size(); i++){
 		float theta = lines[i][1];
 		float temp = theta / CV_PI * 180;
-		cout << lines[i][0] << "   " << temp << endl;
+		//cout << lines[i][0] << "   " << temp << endl;
 		if((temp < 50) && (temp > 0)){
 			angle += temp;
 			num++;
@@ -46,15 +47,17 @@ void preprocess4(Mat &src){
 	}
 	if(num != 0){
 		angle = angle / num;
-	cout << " sas" << angle << endl;
 		angle = angle * CV_PI / 180;
 	}
 
 	if(num2 != 0){
 		angle2 = angle2 / num2;
-	cout << " sassas" << angle2 << endl;
 		angle2 = angle2 * CV_PI / 180;
 	}
+
+	cout << "angle: "  << angle / CV_PI * 180 << endl;
+	cout << "angle2: " << angle2 / CV_PI * 180 << endl;
+	
 	float x_cdt = 40, y_cdt = 40, rate = 20;
 	Point2f pdst[3] = {Point2f(x_cdt, y_cdt), Point2f(x_cdt, y_cdt-rate), 
 					   Point2f(x_cdt+rate, y_cdt)};
