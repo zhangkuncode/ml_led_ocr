@@ -12,12 +12,12 @@ void preprocess4(Mat &src);
 
 int main(){
 	//Mat src1 = imread("./test_data/01.jpg", 0);
-	//Mat src1 = imread("./test_data/33.jpg", 0);
-	Mat src1 = imread("./test_data/13.png", 0);
+	Mat src1 = imread("./test_data/33.jpg", 0);
+	//Mat src1 = imread("./test_data/13.png", 0);
 	if(!src1.data){
 		perror("1 read file failed!\n");
 	}
-	src1 = src1 < 100;
+//	src1 = src1 < 100;
 	preprocess4(src1);
 
 	waitKey(0);
@@ -37,10 +37,10 @@ void preprocess4(Mat &src){
 		float theta = lines[i][1];
 		float temp = theta / CV_PI * 180;
 		//cout << lines[i][0] << "   " << temp << endl;
-		if((temp < 50) && (temp > 0)){
+		if((temp < 30) && (temp > 0)){
 			angle += temp;
 			num++;
-		} else if(temp > 90 && temp < 135){
+		} else if(temp > 90 && temp < 120){
 			angle2 += temp;
 			num2++;
 		}
