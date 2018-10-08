@@ -2,8 +2,7 @@
 
 int main(){
 
-	Mat test = 
-imread("/mnt/hgfs/USHARE/test_digit_origin/24.jpg", 0);	 
+	Mat test = imread("../test_digit_origin/43.jpg", 0);	 
 	
 //	imshow("test", test);
 	test.convertTo(test, CV_32F);
